@@ -59,7 +59,7 @@
     border-bottom: 1px solid var(--line);
   }
   header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo { font-weight: 700; letter-spacing: -0.01em; }
+  .logo { font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
   nav { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
   nav a:hover { color: var(--text); }
 
@@ -185,10 +185,14 @@
     summary .plus { grid-column: 2; grid-row: 1 / 4; }
     summary .role, summary .when { grid-column: 1; text-align: left; }
     .job-body { display: block; padding-bottom: 28px; }
-    .two { grid-template-columns: 1fr; }
+    .two { grid-template-columns: minmax(0, 1fr); }
     .box { padding: 24px; }
     .contact { padding-top: 80px; }
     .contact-list { margin-bottom: 64px; }
+  }
+  @media (max-width: 480px) {
+    nav a:not(:last-child) { display: none; }
+    .btn { max-width: 100%; }
   }
 </style>
 </head>
