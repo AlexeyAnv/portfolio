@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио Лёши Андреева</title>
+<meta name="description" content="Портфолио Лёши Андреева: lead UX/UI-дизайнер и дизайн-менеджер, 15 лет опыта. Wildberries, Ozon, Сбер, ВТБ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #f1f1ee;
+    --text: #111111;
+    --muted: #6b6b68;
+    --line: #e2e2de;
+    --accent: #111111;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --text: #f2f2f0;
+      --muted: #9a9a96;
+      --line: #2a2a2a;
+      --accent: #f2f2f0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --text: #f2f2f0;
+    --muted: #9a9a96;
+    --line: #2a2a2a;
+    --accent: #f2f2f0;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.6 "Manrope", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
+  nav a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: end; padding: 88px 0 96px; }
+  .eyebrow { font-size: 14px; color: var(--muted); letter-spacing: 0.02em; margin-bottom: 20px; }
+  h1 {
+    font-size: clamp(38px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.035em;
+    font-weight: 600; margin: 0 0 28px;
+  }
+  h1 span { color: var(--muted); }
+  .lead { font-size: 19px; color: var(--muted); max-width: 30em; margin: 0 0 36px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px;
+    border-radius: 999px; font-weight: 600; font-size: 15px;
+    border: 1px solid var(--line); transition: background .2s, border-color .2s;
+  }
+  .btn:hover { border-color: var(--text); }
+  .btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .btn.primary:hover { opacity: .85; }
+  .photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; background: var(--surface); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { padding: 28px 0; }
+  .stat + .stat { padding-left: 28px; border-left: 1px solid var(--line); }
+  .stat b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+  .stat span { font-size: 14px; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 104px 0 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 40px; }
+  h2 { font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; font-weight: 600; margin: 0; line-height: 1.1; }
+  .sec-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 28px; }
+  .card .cover { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; background: var(--surface); }
+  .card .cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .card:hover .cover img { transform: scale(1.03); }
+  .card h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0 4px; display: flex; align-items: center; gap: 10px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .tag { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--surface); color: var(--muted); }
+
+  /* Quote */
+  .quote {
+    margin: 104px 0 0; padding: 0;
+    font-size: clamp(24px, 3vw, 34px); line-height: 1.3; letter-spacing: -0.02em; font-weight: 500;
+    max-width: 24em;
+  }
+  .quote span { color: var(--muted); }
+
+  /* Skills */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { padding: 12px 20px; border: 1px solid var(--line); border-radius: 999px; font-size: 16px; font-weight: 500; }
+
+  /* Experience */
+  .jobs { border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: 1fr 1.3fr auto 28px; gap: 24px; align-items: center;
+    padding: 26px 0;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary .co { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; }
+  summary .role { color: var(--muted); font-size: 15px; }
+  summary .when { color: var(--muted); font-size: 15px; white-space: nowrap; text-align: right; }
+  summary .plus { width: 28px; height: 28px; position: relative; }
+  summary .plus::before, summary .plus::after {
+    content: ""; position: absolute; left: 7px; right: 7px; top: 13px; height: 1.5px; background: var(--text); transition: transform .25s;
+  }
+  summary .plus::after { transform: rotate(90deg); }
+  details[open] summary .plus::after { transform: rotate(0); }
+  summary:hover .co { opacity: .7; }
+  .job-body { display: grid; grid-template-columns: 1fr 1.3fr auto 28px; gap: 24px; padding: 0 0 36px; }
+  .job-body > div { grid-column: 2 / 4; }
+  .job-body h4 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; }
+  .job-body h4:first-child { margin-top: 0; }
+  .job-body p { margin: 0 0 10px; color: var(--muted); font-size: 16px; }
+  .job-body ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 16px; }
+  .job-body li { margin-bottom: 6px; }
+
+  /* Clients */
+  .clients { display: flex; flex-wrap: wrap; gap: 14px 40px; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.02em; }
+  .clients span:last-child { color: var(--muted); }
+
+  /* Talks + education */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .box { background: var(--surface); border-radius: var(--radius); padding: 32px; }
+  .box h3 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 18px; }
+  .box p { margin: 0 0 14px; font-size: 16px; }
+  .box p:last-child { margin-bottom: 0; }
+  .box .sub { color: var(--muted); }
+  .talk { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); font-weight: 500; }
+  .talk:first-of-type { border-top: 0; padding-top: 0; }
+  .talk:hover { opacity: .65; }
+  .talk small { color: var(--muted); font-weight: 400; font-size: 14px; white-space: nowrap; }
+
+  /* Contact */
+  .contact { padding: 120px 0 56px; }
+  .contact h2 { font-size: clamp(40px, 7vw, 88px); line-height: 1; letter-spacing: -0.04em; margin-bottom: 40px; }
+  .contact-list { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 96px; }
+  footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 24px; }
+
+  /* Mobile */
+  @media (max-width: 860px) {
+    .wrap { padding: 0 16px; }
+    nav { gap: 18px; font-size: 14px; }
+    nav .hide-sm { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 0 56px; }
+    .photo { aspect-ratio: 1 / 1; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+    section { padding-top: 72px; }
+    .quote { margin-top: 72px; }
+    .sec-head { flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .grid { grid-template-columns: 1fr; gap: 32px; }
+    summary { grid-template-columns: 1fr 28px; gap: 4px 16px; padding: 20px 0; }
+    summary .co { grid-column: 1; }
+    summary .plus { grid-column: 2; grid-row: 1 / 4; }
+    summary .role, summary .when { grid-column: 1; text-align: left; }
+    .job-body { display: block; padding-bottom: 28px; }
+    .two { grid-template-columns: 1fr; }
+    .box { padding: 24px; }
+    .contact { padding-top: 80px; }
+    .contact-list { margin-bottom: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">Лёша Андреев</a>
+    <nav>
+      <a href="#projects">Проекты</a>
+      <a href="#experience">Опыт</a>
+      <a href="#about" class="hide-sm">Обо мне</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Lead UX/UI-дизайнер · Москва</div>
+        <h1>Привет, я Лёша Андреев.<br><span>Проектирую интерфейсы и&nbsp;выстраиваю дизайн-команды.</span></h1>
+        <p class="lead">Дизайнер интерфейсов и дизайн-менеджер с 15-летним опытом. Работал в Wildberries, Ozon, Сбере и ВТБ.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://t.me/andreev_diz" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn" href="https://hh.ru/resume/7a174d0dff00e1d45f0039ed1f344945765846" target="_blank" rel="noopener">Резюме на hh.ru ↗</a>
+        </div>
+      </div>
+      <div class="photo"><img src="img/me.jpg" alt="Лёша Андреев" width="933" height="1400"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>15 лет</b><span>в дизайне интерфейсов</span></div>
+      <div class="stat"><b>5–7</b><span>дизайнеров в команде</span></div>
+      <div class="stat"><b>18+</b><span>дизайнеров нанял в Ozon и WB</span></div>
+      <div class="stat"><b>+2–5%</b><span>к ARPU, CR и GMV в Wildberries</span></div>
+    </div>
+
+    <section id="projects">
+      <div class="sec-head">
+        <h2>Проекты</h2>
+        <p>2015–2025</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="cover"><img src="img/wb-cover.jpg" alt="Интерфейсы Wildberries" loading="lazy"></div>
+          <h3>Wildberries</h3>
+          <p>2023–2025 · Мобильное приложение и портал продавцов</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="img/ozon-cover.jpg" alt="Ozon" loading="lazy"></div>
+          <h3>Ozon</h3>
+          <p>2021–2023 · Ozon ID, ERP-системы, база знаний</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="img/sber-cover.jpg" alt="Кредитные карты Сбера" loading="lazy"></div>
+          <h3>Сбер</h3>
+          <p>2017–2020 · Сбербанк Онлайн, кредитные карты</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="img/avito-cover.jpg" alt="Авито" loading="lazy"></div>
+          <h3>Avito</h3>
+          <p>2022 · Концепт страницы объекта недвижимости</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="img/studio-cover.jpg" alt="Сайт «Галактика»" loading="lazy"></div>
+          <h3>Студийные проекты</h3>
+          <p>2014–2015 · Сайт «Галактики» получил награду «Золотой сайт»</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="img/dm-cover.jpg" alt="Дизайн-менеджмент" loading="lazy"></div>
+          <h3>Дизайн-менеджмент <span class="tag">в работе</span></h3>
+          <p>Процессы, база знаний и обучение команды</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="quote" id="about">Как тимлид, умею выстраивать прозрачные процессы, вдохновлять команду <span>и помогаю каждому дизайнеру раскрыть свои сильные стороны.</span></p>
+
+    <section>
+      <div class="sec-head"><h2>Навыки</h2></div>
+      <div class="chips">
+        <span class="chip">Настройка процессов</span>
+        <span class="chip">Найм сотрудников</span>
+        <span class="chip">UX-исследования</span>
+        <span class="chip">Работа с аналитикой</span>
+        <span class="chip">Прототипирование</span>
+        <span class="chip">UX/UI-стратегия</span>
+        <span class="chip">User Journey</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head">
+        <h2>Опыт работы</h2>
+        <p>15 лет</p>
+      </div>
+      <div class="jobs">
+
+        <details open>
+          <summary><span class="co">Wildberries</span><span class="role">Senior → Team lead UI/UX, e-commerce</span><span class="when">ноя 2023 — сейчас</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <h4>Управление командой из 5–7 дизайнеров</h4>
+            <ul>
+              <li>Ставил цели, распределял задачи, ревьюил работы. Сократил сроки выпуска макетов на ≈30% за счёт Agile-процессов.</li>
+              <li>Согласовывал дизайн-решения с юристами и compliance-командой, обеспечивая соответствие требованиям ЦБ РФ.</li>
+            </ul>
+            <h4>Развитие и обучение сотрудников</h4>
+            <ul>
+              <li>Создал базу знаний для всех дизайнеров b2c: инструкции, процессы, онбординги, обучающие материалы.</li>
+              <li>Внедрил менторство: junior-дизайнеры выросли до middle, senior получили опыт арт-дирекшена.</li>
+              <li>Оптимизировал онбординг — адаптация новичков ускорилась на ≈30%.</li>
+            </ul>
+            <h4>Найм продуктовых дизайнеров</h4>
+            <ul>
+              <li>Нанял около 10 специалистов уровня senior, lead и head.</li>
+              <li>Внедрил гайды по оценке и интервью, настроил и автоматизировал kanban-доску для планирования задач.</li>
+            </ul>
+            <h4>Дизайн-процессы</h4>
+            <ul>
+              <li>Описал и внедрил design review, канбан по Agile, планирование и прегруминг, методологию найма, согласование и кросс-командные задачи, встречи 1-на-1.</li>
+            </ul>
+            <h4>Проектирование интерфейсов</h4>
+            <ul>
+              <li>Спроектировал новые концепты, повысившие конверсию в оформление покупки и метрики ARPU, CR и GMV на 2–5%.</li>
+              <li>Провёл серию UX-исследований, включая глубинные интервью; посетил склады и пункты выдачи, чтобы выявить потребности сотрудников.</li>
+            </ul>
+            <h4>Выступления</h4>
+            <ul>
+              <li>Рассказал на подкасте WBPro о специфике найма дизайнеров и своей методологии.</li>
+              <li>Прочитал лекцию на вебинаре artschool о структурировании знаний и тайм-менеджменте.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">Ozon</span><span class="role">Senior → Team lead UI/UX, e-commerce</span><span class="when">июл 2021 — ноя 2023</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <h4>Управление командой 5+ дизайнеров</h4>
+            <ul>
+              <li>Ставил цели, распределял задачи, ревьюил работы. Сократил сроки выпуска макетов на ≈30% за счёт Agile-процессов.</li>
+              <li>Нанял 8+ дизайнеров, в том числе двух лидов.</li>
+            </ul>
+            <h4>Развитие сотрудников</h4>
+            <ul>
+              <li>Выстроил внутреннее обучение и наставничество, сформировал культуру постоянного развития. Подбирал курсы для сотрудников на основе анализа их слабых сторон.</li>
+            </ul>
+            <h4>Дизайн-процессы</h4>
+            <ul>
+              <li>Создал систему анализа негативных отзывов на основе Big Data.</li>
+              <li>Внедрил design review, канбан по Agile, планирование и прегруминг, методологию найма, встречи 1-на-1.</li>
+            </ul>
+            <h4>Проектирование интерфейсов</h4>
+            <ul>
+              <li>Спроектировал и протестировал единую авторизацию Ozon ID для всех платформ: скорость авторизации +28%, безопасность приложений STD +14%.</li>
+              <li>Переработал CRM для техподдержки — время обработки заявок сократилось на 36%.</li>
+              <li>Добавил и стандартизировал 100+ компонентов дизайн-системы, выстроил паттерны и мастер-файлы — внедрение в разработку ускорилось на 26%.</li>
+            </ul>
+            <h4>UX-исследования</h4>
+            <ul>
+              <li>Работал «в полях»: ездил к сотрудникам техподдержки, которые пользуются софтом моей команды, проводил глубинные интервью.</li>
+              <li>Обеспечил рост конверсии на 15% благодаря улучшениям интерфейса и A/B-тестам.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">ВТБ</span><span class="role">Ведущий UI/UX-дизайнер</span><span class="when">окт 2020 — июн 2021</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <p>Полный цикл дизайна цифровых продуктов для B2B- и B2C-направлений банка: проектирование, исследования, прототипы, пользовательские сценарии, юзабилити-тесты и сопровождение разработки.</p>
+            <h4>Результаты</h4>
+            <ul>
+              <li>Регистрации юрлиц через сайт выросли на 34%, видимость новых сервисов (SOV) — на 23%.</li>
+              <li>Создал сервисы онлайн-регистрации ИП и ООО на сайте ВТБ — от исследований до тестирования готовых решений.</li>
+              <li>Разработал серию продающих лендингов для малого и среднего бизнеса.</li>
+              <li>Создавал баннеры и адаптировал креативы для онлайн- и офлайн-кампаний.</li>
+              <li>Участвовал во всех этапах вывода новых продуктов — от идеи до аналитики поведения пользователей.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">Сбербанк</span><span class="role">Middle → Senior UI/UX, финтех</span><span class="when">май 2017 — окт 2020</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <h4>Проектирование интерфейсов</h4>
+            <ul>
+              <li>Проектировал и модернизировал мобильное приложение и веб-версию «Сбербанк Онлайн».</li>
+              <li>Разработал интерфейсы оформления и выдачи кредитных карт (WEB 3.0, SBOL PRO).</li>
+              <li>Создал внутренние сервисы для рабочих мест сотрудников ППРБ.</li>
+            </ul>
+            <h4>Менторство и обучение</h4>
+            <ul>
+              <li>Внедрил методику проектирования в Figma для аналитических команд: обучил две команды, провёл три вебинара, подготовил шаблоны и видеолекции.</li>
+              <li>Курировал трёх дизайнеров как ментор.</li>
+            </ul>
+            <h4>Исследования и аналитика</h4>
+            <ul>
+              <li>Провёл 20+ UX-исследований и юзабилити-тестов, в том числе тестировал инклюзивные интерфейсы с незрячими пользователями.</li>
+              <li>По метрикам нашёл слабые места в оформлении кредитных карт, сократил число шагов и поднял конверсию на 17%.</li>
+            </ul>
+            <h4>Процессы и документация</h4>
+            <ul>
+              <li>Перенёс корпоративный UI-kit из Sketch в Figma.</li>
+              <li>Создал каталог экранных форм в InVision для проекта ЕКПиТ, участвовал в создании методического пособия по проектированию интерфейсов.</li>
+              <li>Регулярно презентовал проекты дизайн-комьюнити и руководству, читал лекции для дизайнеров компании.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">Jami</span><span class="role">SMM / веб-дизайнер</span><span class="when">мар 2015 — май 2017</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <p>Визуальный контент для SMM-стратегий международных брендов: Mazda, Bosch, Philips, Siemens, Borjomi, Garnier, Vichy и других.</p>
+            <ul>
+              <li>Формировал концепции визуального стиля, генерировал идеи для постинга и промокампаний.</li>
+              <li>Делал статичные, анимированные и видеопосты для соцсетей.</li>
+              <li>Оформлял профили и истории брендов, адаптировал контент под брендбук каждого клиента.</li>
+              <li>Согласовывал креативные концепции с командой и заказчиком.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">Фриланс</span><span class="role">Веб-дизайнер</span><span class="when">май 2013 — апр 2015</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <p>Фирменный стиль, дизайн-стратегии и интерфейсы сайтов для компаний разных отраслей — от сбора требований до сдачи продукта.</p>
+            <ul>
+              <li>Открыл собственную дизайн-студию и нанял около 20 специалистов.</li>
+              <li>Реализовал 40+ проектов фирменного стиля, веб-дизайна и иллюстраций.</li>
+              <li>Собирал и вёл команды для крупных проектов; несколько работ отметили профессиональные сообщества.</li>
+            </ul>
+          </div></div>
+        </details>
+
+        <details>
+          <summary><span class="co">Sibers</span><span class="role">Веб-дизайнер</span><span class="when">мар 2011 — апр 2013</span><span class="plus"></span></summary>
+          <div class="job-body"><div>
+            <p>Дизайн цифровых продуктов для частных американских компаний и госструктур — медицина, пожарная безопасность, недвижимость.</p>
+            <ul>
+              <li>Оценивал объём, сроки и стоимость дизайна для крупных проектов.</li>
+              <li>Писал проектную и техническую документацию на английском, вёл переговоры с зарубежными заказчиками и презентовал решения.</li>
+              <li>Ускорил согласование этапов за счёт налаженной коммуникации между командой и клиентами.</li>
+            </ul>
+          </div></div>
+        </details>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><h2>Клиенты и работодатели</h2></div>
+      <div class="clients">
+        <span>Сбер</span><span>Ozon</span><span>ВТБ</span><span>Wildberries</span><span>Jami</span><span>Shell</span><span>Gizmo studio</span><span>Garnier</span><span>Mazda</span><span>Borjomi</span><span>Столото</span><span>Philips</span><span>Bosch</span><span>Siemens</span><span>Vichy</span><span>и другие</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="two">
+        <div class="box">
+          <h3>Видео и подкасты</h3>
+          <a class="talk" href="https://rutube.ru/video/private/43c2cfaa48f5e0c092d3531594879c45/?p=OMNYX0XNSDkh44FQ8rXd_A" target="_blank" rel="noopener">Подкаст WBPro: про идеальный подбор <small>Rutube ↗</small></a>
+          <a class="talk" href="https://youtu.be/RkcHl_42Igc?si=8VWxvNSe-mC_7-BV" target="_blank" rel="noopener">Как структурировать знания <small>YouTube ↗</small></a>
+        </div>
+        <div class="box">
+          <h3>Образование</h3>
+          <p>НГТУ, механико-технологический факультет<br><span class="sub">Инженер-конструктор, специалист</span></p>
+          <p class="sub">Интенсивы по мобильным приложениям в БВШД, курсы Skillbox, внутренние курсы по UX-исследованиям в Сбере и Ozon, менеджмент в «Богданов и Партнёры», ТРИЗ.</p>
+          <p class="sub">Хожу на Design Prosmotr, ffdd2d, «Дизайн-выходные». Коллекционирую книги по дизайну.</p>
+          <p>Английский — B1+</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact" id="contact">
+      <h2>Давайте<br>поработаем вместе</h2>
+      <div class="contact-list">
+        <a class="btn primary" href="https://t.me/andreev_diz" target="_blank" rel="noopener">Telegram @andreev_diz</a>
+        <a class="btn" href="tel:+79231503332">+7 923 150-33-32</a>
+        <a class="btn" href="https://hh.ru/resume/7a174d0dff00e1d45f0039ed1f344945765846" target="_blank" rel="noopener">Резюме на hh.ru ↗</a>
+      </div>
+      <footer>
+        <span>© Лёша Андреев</span>
+        <span>Москва, Россия</span>
+      </footer>
+    </div>
+
+  </div>
+</main>
+</body>
+</html>
